@@ -19,12 +19,12 @@ Route::get("/", [HomeController::class, 'index'])->name('home');
 
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
-
+    //Xử lý đăng nhập và đăng xuất
     Route::get("/", [AdminController::class, 'index'])->name('login');
     Route::post('/login', [AdminController::class, 'login'])->name('login.action');
     Route::get("/logout", [AdminController::class, 'logout'])->name('logout');
 
-
+    //Điều hướng trang dashboard
     Route::get("/dashboard", [AdminController::class, 'dashboard'])->name('dashboard');
 });
 
@@ -40,8 +40,9 @@ Route::prefix('admin/category-product')->name('category.product.')->group(functi
     Route::get('/admin/unactive-category-product/{category_product_id}', [CategoryController::class, 'unactive_category_product'])->name('unactive');
 
 });
-// brand.product.save
-// Brand Product Routes
+
+
+
 Route::prefix('admin/brand-product')->name('brand.product.')->group(function () {
     // Danh sách và thêm mới thương hiệu
     Route::get('/all', [BandProductController::class, 'all_brand_product'])->name('all');
@@ -58,19 +59,3 @@ Route::prefix('admin/brand-product')->name('brand.product.')->group(function () 
     Route::get('/delete/{brand_product_id}', [BandProductController::class, 'delete_brand_product'])->name('delete');
 });
 
-// Product Routes
-Route::prefix('admin/product')->name('product.')->group(function () {
-    // Danh sách và thêm mới sản phẩm
-    Route::get('/add', [ProductController::class, 'add_product'])->name('add');
-    Route::get('/all', [ProductController::class, 'all_product'])->name('all');
-    Route::post('/save', [ProductController::class, 'save_product'])->name('save');
-
-    // Kích hoạt và không kích hoạt sản phẩm
-    Route::get('/active/{product_id}', [ProductController::class, 'activeProduct'])->name('active');
-    Route::get('/unactive/{product_id}', [ProductController::class, 'unactiveProduct'])->name('unactive');
-
-    // Sửa, cập nhật và xóa sản phẩm
-    Route::get('/edit/{product_id}', [ProductController::class, 'edit_product'])->name('edit');
-    Route::post('/update/{product_id}', [ProductController::class, 'update_product'])->name('update');
-    Route::get('/delete/{product_id}', [ProductController::class, 'delete_product'])->name('delete');
-});

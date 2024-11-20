@@ -30,16 +30,6 @@
             </ul>
         </li>
 
-        <li class="sub-menu">
-            <a href="javascript:;">
-                <i class="fa fa-book"></i>
-                <span>Sản phẩm</span>
-            </a>
-            <ul class="sub">
-                <li><a href="{{ route('product.add') }}">Thêm sản phẩm</a></li>
-                <li><a href="{{ route('product.all') }}">Liệt kê sản phẩm</a></li>
-            </ul>
-        </li>
     </ul>
 </div>
 <!-- sidebar menu end-->

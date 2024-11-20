@@ -19,27 +19,8 @@
         }
     </script>
 
-    <!-- bootstrap-css -->
-    <link rel="stylesheet" href="{{asset('/style/admin/css/bootstrap.min.css')}}">
-    <!-- //bootstrap-css -->
-    <!-- Custom CSS -->
-    <link href="{{asset('/style/admin/css/style.css')}}" rel='stylesheet' type='text/css' />
-    <link href="{{asset('/style/admin/css/style-responsive.css')}}" rel="stylesheet" />
-    <!-- font CSS -->
-    <link
-        href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
-        rel='stylesheet' type='text/css'>
-    <!-- font-awesome icons -->
-    <link rel="stylesheet" href="{{asset('/style/admin//font.css')}}" type="text/css" />
-    <link href="{{asset('/style/admin/css/font-awesome.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('/style/admin/css/morris.css')}}" type="text/css" />
-    <!-- calendar -->
-    <link rel="stylesheet" href="{{asset('/style/admin/css/monthly.css')}}">
-    <!-- //calendar -->
-    <!-- //font-awesome icons -->
+    @include('layouts.admin.css')
 
-    <!-- CKEditor CDN -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 
     <script src="{{asset('/style/admin/js/jquery2.0.3.min.js')}}"></script>
     <script src="{{asset('/style/admin/js/raphael-min.js')}}"></script>
@@ -116,59 +97,11 @@
         <!--main content end-->
     </section>
 
-    <script src="{{asset('/style/admin/js/bootstrap.js')}}"></script>
-    <script src="{{asset('/style/admin/js/jquery.dcjqaccordion.2.7.js')}}"></script>
-    <script src="{{asset('/style/admin/js/scripts.js')}}"></script>
-    <script src="{{asset('/style/admin/js/jquery.slimscroll.js')}}"></script>
-    <script src="{{asset('/style/admin/js/jquery.nicescroll.js')}}"></script>
-    <script src="{{asset('/style/admin/js/jquery.scrollTo.js')}}"></script>
 
-    <!-- CKEditor Initialization -->
-    <script>
-        // Khởi tạo CKEditor cho các textarea
-        ClassicEditor
-            .create(document.querySelector('#product_desc'))
-            .catch(error => {
-                console.error(error);
-            });
-
-        ClassicEditor
-            .create(document.querySelector('#product_content'))
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
+    @include('layouts.admin.js')
 
 
 
-
-    <!-- Calendar -->
-    <script type="text/javascript" src="/style/admin/js/monthly.js"></script>
-    <script type="text/javascript">
-        $(window).load(function () {
-            $('#mycalendar').monthly({
-                mode: 'event',
-            });
-
-            $('#mycalendar2').monthly({
-                mode: 'picker',
-                target: '#mytarget',
-                setWidth: '250px',
-                startHidden: true,
-                showTrigger: '#mytarget',
-                stylePast: true,
-                disablePast: true
-            });
-
-            switch (window.location.protocol) {
-                case 'http:':
-                case 'https:':
-                    break;
-                case 'file:':
-                    alert('Just a heads-up, events will not work when run locally.');
-            }
-        });
-    </script>
 </body>
 
 </html>

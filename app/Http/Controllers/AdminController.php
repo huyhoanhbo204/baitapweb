@@ -15,9 +15,9 @@ class AdminController extends Controller
     {
         $admin_id = Session::get('admin_id');
         if ($admin_id) {
-            return Redirect::to('dashboard');
+            return redirect()->route('admin.dashboard');
         } else {
-            return Redirect::to('admin')->send();
+            return redirect()->route('admin.login')->send();
         }
     }
 
@@ -26,7 +26,7 @@ class AdminController extends Controller
     public function index()
     {
         if (Session::has('admin_id')) {
-            return redirect()->route('pages.admin.dashboard');
+            return redirect()->route('admin.dashboard');
         }
         return view("admin_login");
     }
@@ -69,24 +69,19 @@ class AdminController extends Controller
             // Lưu thông tin vào session nếu đăng nhập thành công
             Session::put('admin_name', $result->admin_name);
             Session::put('admin_id', $result->admin_id);
-            return Redirect::to('/admin/dashboard');
+            return redirect()->route('admin.dashboard');
         } else {
             // Sai thông tin đăng nhập, trả về thông báo
             Session::put('message', 'Mật khẩu hoặc email không đúng, nhập lại nhé');
-            return Redirect::to('/admin');
+            return redirect()->route('admin.login');
         }
     }
-
-
-
-
 
     //Xử lý đăng xuất
     public function logout()
     {
         Session::put('admin_name', null);
         Session::put('admin_id', null);
-        return Redirect::to('/admin');
-
+        return redirect()->route('admin.login');
     }
 }

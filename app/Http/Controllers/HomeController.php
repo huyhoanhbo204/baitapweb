@@ -20,7 +20,7 @@ class HomeController extends Controller
             ->orderby('brand_id', 'desc')
             ->get();
 
-        // Trả về view và truyền dữ liệu
+
         return view("pages.client.home")
             ->with('category', $cate_product)
             ->with('brand', $brand_product);
