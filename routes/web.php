@@ -36,8 +36,8 @@ Route::prefix('admin/category-product')->name('category.product.')->group(functi
     Route::post('/save', [CategoryController::class, 'save_category_product'])->name('save');
 
     // Kích hoạt và không kích hoạt danh mục
-    Route::get('/admin/active-category-product/{category_product_id}', [CategoryController::class, 'active_category_product'])->name('active');
-    Route::get('/admin/unactive-category-product/{category_product_id}', [CategoryController::class, 'unactive_category_product'])->name('unactive');
+    Route::get('/active/{category_product_id}', [CategoryController::class, 'active_category_product'])->name('active');
+    Route::get('/unactive/{category_product_id}', [CategoryController::class, 'unactive_category_product'])->name('unactive');
 
 });
 

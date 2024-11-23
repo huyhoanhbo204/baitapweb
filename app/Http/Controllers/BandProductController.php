@@ -41,7 +41,6 @@ class BandProductController extends Controller
 
         $data = $request->all();
 
-
         $brand = new Brand();
         $brand->brand_name = $data['brand_product_name'];
         $brand->brand_slug = $data['brand_slug'];
@@ -88,24 +87,18 @@ class BandProductController extends Controller
     {
         $this->AuthLogin();
 
-
         $data = $request->all();
 
-
         $brand = Brand::find($brand_id);
-
 
         $brand->brand_name = $data['brand_product_name'];
         $brand->brand_slug = $data['brand_product_slug'];
         $brand->brand_desc = $data['brand_product_desc'];
         $brand->brand_status = $data['brand_product_status'];
 
-
         $brand->save();
 
-
         Session::put('message', 'Cập nhật thương hiệu sản phẩm thành công');
-
         return redirect()->route('brand.product.all');
     }
 
